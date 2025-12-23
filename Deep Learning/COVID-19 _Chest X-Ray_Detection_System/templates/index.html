@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COVID-19 Chest X-Ray Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>COVID-19 Chest X-Ray Detection</h1>
+            <p>AI-powered system to detect Pneumonia & COVID-19 using Chest X-Ray images.</p>
+        </div>
+       
+    </section>
+
+    <!-- MAIN CARD -->
+    <section class="container">
+        <div class="card">
+            <h2>Upload Chest X-Ray</h2>
+
+            <form method="POST" enctype="multipart/form-data">
+                <input type="file" name="image" required>
+                <button type="submit">Predict</button>
+            </form>
+
+            {% if img_path %}
+                <div class="preview">
+                    <img src="{{ img_path }}">
+                </div>
+            {% endif %}
+
+            {% if prediction %}
+                <div class="result">
+                    <h3>Result:</h3>
+                    <p>{{ prediction }}</p>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Powered by Deep Learning | CNN Model | Flask</p>
+    </footer>
+
+</body>
+</html>
