@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title> customer convention</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    </head>
+    <body>
+        
+    
+            <h1 class="page-title">Customer Conversion Predictor</h1>
+
+            <div class="leftbody">
+                <div class="bodyform">
+                    <form action="/predict" method="post">
+
+                        <select name="Gender" value="" required>
+                            <option disabled selected>-- Choose Gender --</option>
+                            <option value="0">FEMALE</option>
+                            <option value="1">MALE</option>
+                        </select><br><br>
+
+                        <select name="LeadSource" required>
+                            <option value="" disabled selected>-- Select Lead Source --</option>
+                            <option value="Email">Email</option>
+                            <option value="Organic">Organic</option>
+                            <option value="Referral">Referral</option>
+                            <option value="Social Media">Social Media</option>
+
+                        </select><br><br>
+
+                        <input type="number" name="TimeSpent_minutes" placeholder="Time Spent (in minutes)" required><br><br>
+                        <input type="number" name="PagesViewed" placeholder="How many pages did the user view?" required><br><br>
+
+                        <select name="LeadStatus" required>
+                            <option value="" disabled selected>-- Select Lead Status --</option>
+                            <option value="Cold">Cold</option>
+                            <option value="Hot">Hot</option>
+                            <option value="Warm">Warm</option>
+                        </select><br><br>
+
+                        <input type="number" name="EmailSent" placeholder="Enter emails sent" required><br><br>
+
+                        <select name="DeviceType" required>
+                            <option value="" disabled selected>-- Select Device Type --</option>
+                            <option value="Desktop">Desktop</option>
+                            <option value="Mobile">Mobile</option>
+                            <option value="Tablet">Tablet</option>
+                        </select><br><br>
+
+                        <select name="ReferralSource" required>
+                            <option value="" disabled selected>-- Select Referral Source --</option>
+                            <option value="Direct">Direct</option>
+                            <option value="Facebook">Facebook</option>
+                            <option value="Google">Google</option>
+                            <option value="ReferralSite">ReferralSite</option>
+                            <option value="Twitter">Twitter</option>
+                        </select><br><br>
+
+                        <input type="number" name="FormSubmissions" placeholder="Enter number of form submissions" required><br><br>
+                        <input type="number" name="ResponseTime_hours" placeholder="Enter response time (in hours)" required><br><br>
+                        <input type="number" name="FollowUpEmails" placeholder="Follow-up emails" required><br><br>
+
+                        <select name="PaymentHistory" required>
+                            <option value="" disabled selected>-- Select Payment History --</option>
+                            <option value="Good">Good</option>
+                            <option value="No Payment">No Payment</option>
+                        </select><br><br>
+
+                        <button type="submit">Predict</button>
+
+
+
+
+                       <!-- Gender	LeadSource	TimeSpent (minutes)-->	
+                    </form>
+                    {% if final_ans_of_prediction %}
+                    <div class="final_ans_of_prediction">{{final_ans_of_prediction}}</div>
+                    {% endif %}
+
+                </div>
+            </div>
+         
+        
+    </body>
+</html>
